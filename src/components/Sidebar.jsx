@@ -3,7 +3,7 @@
     const Sidebar = ({ setView, view }) => {
     return (
         <div className="sidebar">
-        <h2>Dashboard</h2>
+        <h2>Sirohi CaloDash</h2>
         <button
             className={view === 'tracker' ? 'active' : ''}
             onClick={() => setView('tracker')}
