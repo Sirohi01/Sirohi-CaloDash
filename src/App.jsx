@@ -6,9 +6,9 @@ import CalorieList from './components/CalorieList';
 import DateSelector from './components/DateSelector';
 import CalorieChart from './components/CalorieChart';
 import SummaryPage from './components/SummaryPage';
+import WaterTracker from './components/WaterTracker';
 import dayjs from 'dayjs';
 import './styles/styles.css';
-
 function App() {
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [view, setView] = useState('tracker');
@@ -18,16 +18,16 @@ function App() {
       <Sidebar setView={setView} view={view} />
       <div className="main">
         <Header />
-        {view === 'tracker' ? (
+        {view === 'tracker' && (
           <>
             <DateSelector date={date} setDate={setDate} />
             <CalorieForm date={date} />
             <CalorieList date={date} />
             <CalorieChart />
           </>
-        ) : (
-          <SummaryPage />
         )}
+        {view === 'summary' && <SummaryPage />}
+        {view === 'water' && <WaterTracker />}
       </div>
     </div>
   );
