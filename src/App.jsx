@@ -7,6 +7,7 @@ import DateSelector from './components/DateSelector';
 import CalorieChart from './components/CalorieChart';
 import SummaryPage from './components/SummaryPage';
 import WaterTracker from './components/WaterTracker';
+import WeightTracker from './components/weightTracker';
 import dayjs from 'dayjs';
 import './styles/styles.css';
 function App() {
@@ -28,6 +29,7 @@ function App() {
         )}
         {view === 'summary' && <SummaryPage />}
         {view === 'water' && <WaterTracker />}
+        {view === 'weight' && <WeightTracker />}
       </div>
     </div>
   );
