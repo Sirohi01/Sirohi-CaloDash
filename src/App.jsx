@@ -7,9 +7,11 @@ import DateSelector from './components/DateSelector';
 import CalorieChart from './components/CalorieChart';
 import SummaryPage from './components/SummaryPage';
 import WaterTracker from './components/WaterTracker';
-import WeightTracker from './components/weightTracker';
+import WeightTracker from './components/WeightTracker';
+import BodyMeasurements from './components/BodyMeasurementForm';
 import dayjs from 'dayjs';
 import './styles/styles.css';
+
 function App() {
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [view, setView] = useState('tracker');
@@ -30,6 +32,7 @@ function App() {
         {view === 'summary' && <SummaryPage />}
         {view === 'water' && <WaterTracker />}
         {view === 'weight' && <WeightTracker />}
+        {view === 'measurement' && <BodyMeasurements date={date} />}
       </div>
     </div>
   );

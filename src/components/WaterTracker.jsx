@@ -10,7 +10,7 @@ const WaterTracker = () => {
   const dispatch = useDispatch();
   const today = dayjs().format('YYYY-MM-DD');
   const intake = useSelector((state) => state.water.intake?.[today] || 0);
-  const maxGlasses = 8;
+  const maxGlasses = 16;
   const percentage = Math.min((intake / maxGlasses) * 100, 100);
 
   const handleAdd = () => {
@@ -43,7 +43,7 @@ const WaterTracker = () => {
         </div>
 
         <div className="tracker-info" style={{ marginBottom: '1rem', textAlign: 'center' }}>
-          <h4 style={{ color: '#00bcd4', margin: '10px 0' }}>Daily Goal: {maxGlasses} Glasses (2L)</h4>
+          <h4 style={{ color: '#00bcd4', margin: '10px 0' }}>Daily Goal: {maxGlasses} Glasses (4L)</h4>
           <p style={{ color: '#444', fontSize: '16px' }}>
             {waterAdvice}
           </p>

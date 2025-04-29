@@ -1,0 +1,86 @@
+    /* BodyMeasurementForm.css */
+    .measurement-form-container {
+        background: #fff7f0;
+        padding: 2rem;
+        border-radius: 14px;
+        box-shadow: 0 5px 18px rgba(255, 112, 67, 0.2);
+        max-width: 540px;
+        margin: 2rem auto;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    
+    .measurement-form-container h2 {
+        text-align: center;
+        color: #ff7043;
+        margin-bottom: 1.5rem;
+    }
+    
+    .measurement-form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .full-width {
+        grid-column: 1 / -1;
+    }
+    
+    .form-group label {
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+        color: #444;
+    }
+    
+    .form-group label svg {
+        margin-right: 6px;
+        color: #ff7043;
+    }
+    
+    .form-group input {
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        background: #fff;
+        transition: border 0.3s;
+    }
+    
+    .form-group input:focus {
+        border-color: #ff7043;
+        outline: none;
+    }
+    
+    .submit-btn {
+        grid-column: 1 / -1;
+        padding: 0.9rem;
+        font-size: 1.1rem;
+        background: #ff7043;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 1rem;
+    }
+    
+    .submit-btn:hover {
+        background-color: #e64a19;
+    }
+    
+    @media (max-width: 600px) {
+        .measurement-form-grid {
+        grid-template-columns: 1fr;
+        }
+    
+        .submit-btn {
+        font-size: 1rem;
+        }
+    }
+    

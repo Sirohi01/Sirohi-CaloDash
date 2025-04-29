@@ -1,0 +1,251 @@
+.summary-page {
+    padding: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+.summary-title {
+    margin-bottom: 1.5rem;
+    color: #222;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+.summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.summary-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.summary-item:hover {
+    transform: scale(1.01);
+}
+
+.summary-date {
+    font-size: 1.4rem;
+    color: #222;
+    margin: 0 0 0.5rem 0;
+}
+
+.summary-stats {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.summary-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #444;
+}
+
+.summary-expanded {
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.summary-section-title {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.summary-chart-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.summary-chart {
+    height: 350px;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-full-width-chart {
+    margin-top: 2rem;
+    width: 100%;
+    height: 350px;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
+}
+
+.summary-metrics {
+    margin-top: 2rem;
+}
+
+.summary-metrics-list {
+    padding-left: 20px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.summary-measurements {
+    margin-top: 2rem;
+}
+
+.measurement-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.measurement-card {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.33% - 1rem);
+    max-width: calc(33.33% - 1rem);
+}
+
+.measurement-icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    color: #666;
+}
+
+.measurement-label {
+    font-weight: bold;
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.measurement-value {
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    color: #222;
+}
+
+.empty-state {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+/* 🎯 Redesigned Body Matrix Breakdown Section */
+.body-matrix-breakdown {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.body-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.body-matrix-card {
+    background-color: #f9fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.body-matrix-card:hover {
+    transform: translateY(-4px);
+}
+
+.body-matrix-label {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.body-matrix-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .summary-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+    }
+
+    .measurement-card {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+
+    .summary-chart {
+        height: 220px;
+    }
+
+    .summary-full-width-chart {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .measurement-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .summary-date {
+        font-size: 1.2rem;
+    }
+
+    .summary-title {
+        font-size: 1.5rem;
+    }
+
+    .summary-section-title {
+        font-size: 1.1rem;
+    }
+
+    .summary-chart,
+    .summary-full-width-chart {
+        height: 200px;
+    }
+
+    .body-matrix-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
