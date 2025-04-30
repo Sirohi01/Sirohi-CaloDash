@@ -27,7 +27,15 @@
         </div>
 
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-            <h2 className="sidebar-title">Sirohi CaloDash</h2>
+            <h2 className="sidebar-title">Kalo_Dash</h2>
+
+            <button
+            className={view === 'tracker' ? 'active' : ''}
+            onClick={() => handleViewChange('gym')}
+            >
+            <FaDumbbell className="sidebar-icon" />
+            Gym Workout
+            </button>
 
             <button
             className={view === 'tracker' ? 'active' : ''}

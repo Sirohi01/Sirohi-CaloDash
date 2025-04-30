@@ -9,6 +9,7 @@ import SummaryPage from './components/SummaryPage';
 import WaterTracker from './components/WaterTracker';
 import WeightTracker from './components/WeightTracker';
 import BodyMeasurements from './components/BodyMeasurementForm';
+import GymModeWorkoutPage from './components/GymModeWorkoutPage';
 import dayjs from 'dayjs';
 import './styles/styles.css';
 
@@ -33,6 +34,8 @@ function App() {
         {view === 'water' && <WaterTracker />}
         {view === 'weight' && <WeightTracker />}
         {view === 'measurement' && <BodyMeasurements date={date} />}
+        {view === 'gym' && <GymModeWorkoutPage />}
+
       </div>
     </div>
   );

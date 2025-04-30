@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => (
     <header className="header">
-        <h1>Sirohi CaloDash</h1>
+        <h1>Kalo_Dash</h1>
     </header>
 );
 

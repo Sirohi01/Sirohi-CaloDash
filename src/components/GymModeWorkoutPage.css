@@ -1,0 +1,303 @@
+/* CSS Variables for easy customization */
+:root {
+    --primary-color: #2c3e50;
+    --hover-color: #e0e0e0;
+    --active-bg: #2c3e50;
+    --text-light: #555;
+    --text-dark: #222;
+    --card-bg: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+}
+
+/* Base Container */
+.gym-mode-container {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f9fb;
+    color: var(--text-dark);
+    animation: fadeIn 0.8s ease-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Focus State for Buttons */
+.mode-select-buttons button:focus,
+.timer-button:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.5);
+}
+
+/* Heading */
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    animation: slideIn 0.8s ease-out;
+    text-transform: uppercase;
+}
+
+/* Mode Buttons */
+.mode-select-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.mode-select-buttons button {
+    padding: 0.9rem 1.7rem;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px var(--shadow-light);
+    transform: scale(1);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.mode-select-buttons button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.mode-select-buttons .active {
+    background-color: var(--active-bg);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 6px 12px var(--shadow-dark);
+}
+
+/* Mode Description */
+.mode-description {
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    animation: fadeIn 1s ease-out;
+    line-height: 1.6;
+}
+
+/* Routine Grid */
+.routine {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    animation: fadeInUp 0.7s ease-out;
+}
+
+@media (min-width: 768px) {
+    .routine {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1200px) {
+    .routine {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Day Card */
+.day-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.7s ease-out;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px var(--shadow-dark);
+}
+
+.day-card h3 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Exercise Block */
+.exercise-block {
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: transform 0.3s ease;
+}
+
+.exercise-block:last-child {
+    border-bottom: none;
+}
+
+.exercise-block h4 {
+    font-size: 1.1rem;
+    margin: 0.6rem 0;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.exercise-block p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.exercise-block iframe {
+    width: 100%;
+    height: 240px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow-light);
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.exercise-block iframe:hover {
+    transform: scale(1.05);
+}
+
+/* Stretching Guide */
+.stretching-guide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 3rem 0;
+    animation: fadeInUp 0.7s ease-out;
+}
+
+.stretch-block {
+    text-align: center;
+    width: 180px;
+    animation: fadeIn 1s ease-out;
+}
+
+.stretch-block img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.stretch-block img:hover {
+    transform: scale(1.1);
+}
+
+.stretch-block p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+/* Timer Section */
+.timer-section {
+    text-align: center;
+    margin-top: 3rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.timer-section h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Timer Button */
+.timer-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.9rem 2.3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.timer-button:hover {
+    background-color: #1a252f;
+    transform: translateY(-3px);
+}
+
+/* Animation Definitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 600px) {
+    .stretch-block {
+        width: 120px;
+    }
+
+    .exercise-block iframe {
+        height: 200px;
+    }
+
+    .timer-button {
+        padding: 0.75rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .day-card {
+        padding: 1.2rem;
+    }
+
+    /* Adjust Button Size for Mobile */
+    .mode-select-buttons button {
+        padding: 0.7rem 1.4rem;
+        font-size: 1rem;
+    }
+}
