@@ -88,6 +88,7 @@
     
         .sidebar-toggle {
         display: block;
+        width: 18px;
         }
     
         .sidebar-title {
@@ -96,7 +97,7 @@
         }
     
         .sidebar button {
-        font-size: 16px;
-        padding: 12px 10px;
+        font-size: 14px;
+        padding: 10px 10px;
         }
     }

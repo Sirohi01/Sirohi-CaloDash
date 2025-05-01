@@ -40,7 +40,7 @@
     
     @media (max-width: 768px) {
         .header-content {
-        padding: 0 20px;
+        padding: 30 40px;
         }
         
         .header h1 {
@@ -48,7 +48,7 @@
         }
         
         .logout-btn {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 5px 10px;
+        font-size: 12px;
         }
     }
