@@ -30,7 +30,7 @@
             <h2 className="sidebar-title">Kalo_Dash</h2>
 
             <button
-            className={view === 'tracker' ? 'active' : ''}
+            className={view === 'gym' ? 'active' : ''}
             onClick={() => handleViewChange('gym')}
             >
             <FaDumbbell className="sidebar-icon" />

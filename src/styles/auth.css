@@ -1,0 +1,227 @@
+/* Main Auth Container with Glassmorphism and Animated BG */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1075&q=80') no-repeat center center / cover;
+    animation: fadeInBg 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeInBg {
+    from {
+        background-position: center;
+    }
+    to {
+        background-position: 52% center;
+    }
+}
+
+.auth-container {
+    max-width: 460px;
+    width: 100%;
+    padding: 48px 40px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeInUp 0.7s ease-out;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Header Styles */
+.auth-header {
+    margin-bottom: 32px;
+}
+
+.auth-container h2 {
+    font-size: 30px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff7f50, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+.auth-container p.subtitle {
+    font-size: 15.5px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.auth-form input {
+    box-sizing: border-box;
+    padding: 14px 18px 14px 46px;
+    width: 100%;
+    padding: 18px 20px 18px 52px;
+    border: 2px solid #eaeaea;
+    border-radius: 14px;
+    background-color: #f9f9f9;
+    font-size: 15.5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+    color: #2c3e50;
+}
+
+.auth-form input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #ff7f50;
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(255, 127, 80, 0.15), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Input Icons */
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #ff7f50;
+    pointer-events: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.auth-form input:focus + .input-icon {
+    transform: translateY(-50%) scale(1.1);
+    color: #ff5722;
+}
+
+/* Password Toggle */
+.password-toggle {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: #ff7f50;
+}
+
+/* Button */
+.auth-form button {
+    padding: 17px;
+    width: 100%;
+    background: linear-gradient(135deg, #ff7f50 0%, #ff5722 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 127, 80, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255, 127, 80, 0.35);
+}
+
+/* Footer Links */
+.auth-footer {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-link {
+    display: inline-block;
+    color: #ff7f50;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: #ff5722;
+    background-color: rgba(255, 127, 80, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .auth-wrapper {
+        padding: 16px;
+    }
+
+    .auth-container {
+        padding: 36px 24px;
+        border-radius: 16px;
+    }
+
+    .auth-container h2 {
+        font-size: 24px;
+    }
+
+    .auth-form input {
+        padding: 16px 16px 16px 48px;
+    }
+
+    .input-icon {
+        left: 16px;
+        font-size: 18px;
+    }
+
+    .auth-form button {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .auth-container {
+        padding: 28px 20px;
+    }
+
+    .auth-form {
+        gap: 20px;
+    }
+
+    .auth-container h2 {
+        font-size: 22px;
+    }
+}
