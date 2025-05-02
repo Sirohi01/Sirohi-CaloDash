@@ -1,8 +1,9 @@
-    // Login.jsx
     import React, { useState } from 'react';
     import { useDispatch } from 'react-redux';
-    import { setUser } from '../../features/user/userSlice';
+    import { setUser, setLoading, setError } from '../../features/user/userSlice';
     import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+    import { signInWithEmailAndPassword } from 'firebase/auth';
+    import { auth } from './firebase';
     import '../../styles/auth.css';
 
     const Login = ({ switchToSignup }) => {
@@ -11,10 +12,39 @@
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const user = { email };
+        dispatch(setLoading());
+        
+        try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = {
+            uid: userCredential.user.uid,
+            email: userCredential.user.email,
+            displayName: userCredential.user.displayName
+        };
         dispatch(setUser(user));
+        } catch (error) {
+        let errorMessage = 'Login failed. Please try again.';
+        switch(error.code) {
+            case 'auth/invalid-email':
+            errorMessage = 'Invalid email address.';
+            break;
+            case 'auth/user-disabled':
+            errorMessage = 'This account has been disabled.';
+            break;
+            case 'auth/user-not-found':
+            errorMessage = 'No account found with this email.';
+            break;
+            case 'auth/wrong-password':
+            errorMessage = 'Incorrect password.';
+            break;
+            case 'auth/network-request-failed':
+            errorMessage = 'Network error. Please check your internet connection.';
+            break;
+        }
+        dispatch(setError(errorMessage));
+        }
     };
 
     return (

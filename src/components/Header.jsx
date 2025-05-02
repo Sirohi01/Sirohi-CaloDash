@@ -1,26 +1,42 @@
     import React from 'react';
-    import { useSelector } from 'react-redux';
+    import { useSelector, useDispatch } from 'react-redux';
     import { logoutUser } from '../features/user/userSlice';
-    import { useDispatch } from 'react-redux';
-    import { FaSignOutAlt } from 'react-icons/fa';
+    import { FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
+    import { signOut } from 'firebase/auth';
+    import { auth } from '../components/auth/firebase';
     import './Header.css';
 
     const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.currentUser);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        try {
+        await signOut(auth);
         dispatch(logoutUser());
+        } catch (error) {
+        console.error('Logout error:', error);
+        }
     };
 
     return (
         <header className="header">
-        <div className="header-content">
-            <h1>Kalo_Dash</h1>
+        <div className="header-container">
+            <div className="logo-container">
+            <h1 className="logo">Kalo<span>Dash</span></h1>
+            </div>
+            
             {user && (
-            <button onClick={handleLogout} className="logout-btn">
-                <FaSignOutAlt /> Logout
-            </button>
+            <div className="user-controls">
+                <div className="user-profile">
+                <FaUserCircle className="user-icon" />
+                <span className="user-name">{user.displayName || user.email}</span>
+                </div>
+                <button onClick={handleLogout} className="logout-btn" aria-label="Logout">
+                <FaSignOutAlt className="logout-icon" />
+                <span className="logout-text">Logout</span>
+                </button>
+            </div>
             )}
         </div>
         </header>

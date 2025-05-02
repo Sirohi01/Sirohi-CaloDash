@@ -1,4 +1,3 @@
-/* Main Auth Container with Glassmorphism and Animated BG */
 .auth-wrapper {
     min-height: 100vh;
     display: flex;
@@ -29,7 +28,6 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
     animation: fadeInUp 0.7s ease-out;
-    backdrop-filter: blur(12px);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }

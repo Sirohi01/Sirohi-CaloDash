@@ -1,8 +1,9 @@
-    // Signup.jsx
     import React, { useState } from 'react';
     import { useDispatch } from 'react-redux';
-    import { setUser } from '../../features/user/userSlice';
+    import { setUser, setLoading, setError } from '../../features/user/userSlice';
     import { FaEnvelope, FaLock, FaUser, FaEye, FaEyeSlash } from 'react-icons/fa';
+    import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+    import { auth } from './firebase';
     import '../../styles/auth.css';
 
     const Signup = ({ switchToLogin }) => {
@@ -12,10 +13,42 @@
     const [name, setName] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
-        const user = { email, name };
+        dispatch(setLoading());
+        
+        try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        
+        // Update user profile with display name
+        await updateProfile(userCredential.user, {
+            displayName: name
+        });
+
+        const user = {
+            uid: userCredential.user.uid,
+            email: userCredential.user.email,
+            displayName: name
+        };
         dispatch(setUser(user));
+        } catch (error) {
+        let errorMessage = 'Signup failed. Please try again.';
+        switch(error.code) {
+            case 'auth/email-already-in-use':
+            errorMessage = 'Email already in use.';
+            break;
+            case 'auth/invalid-email':
+            errorMessage = 'Invalid email address.';
+            break;
+            case 'auth/weak-password':
+            errorMessage = 'Password should be at least 6 characters.';
+            break;
+            case 'auth/network-request-failed':
+            errorMessage = 'Network error. Please check your internet connection.';
+            break;
+        }
+        dispatch(setError(errorMessage));
+        }
     };
 
     return (
@@ -56,6 +89,7 @@
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength="6"
                 />
                 <span className="input-icon"><FaLock /></span>
                 <span 
