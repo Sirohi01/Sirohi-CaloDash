@@ -12,7 +12,23 @@
         border-bottom-right-radius: 12px;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
+    .sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     
+    
+}
+
+.logo-image {
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+
     .sidebar-title {
         padding-top: 30px;
         margin-bottom: 40px;

@@ -9,6 +9,7 @@
     FaRulerCombined,
     } from 'react-icons/fa';
     import './Sidebar.css';
+    import KaloDashLogo from '../assets/Kalo.png';
 
     const Sidebar = ({ setView, view }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,13 @@
         </div>
 
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-            <h2 className="sidebar-title">Kalo_Dash</h2>
+            
+            <div className="sidebar-logo">
+                <img src={KaloDashLogo} alt="Kalo_Dash Logo" className="logo-image" />
+            </div>
+
+            
+
 
             <button
             className={view === 'gym' ? 'active' : ''}

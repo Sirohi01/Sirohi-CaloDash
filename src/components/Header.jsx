@@ -5,6 +5,7 @@
     import { signOut } from 'firebase/auth';
     import { auth } from '../components/auth/firebase';
     import './Header.css';
+    import KaloDashLogo from '../assets/Kalo.png';
 
     const Header = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,9 @@
         <header className="header">
         <div className="header-container">
             <div className="logo-container">
-            <h1 className="logo">Kalo<span>Dash</span></h1>
+            <div className="logo-img">
+                <img src={KaloDashLogo} alt="Kalo_Dash Logo" className="logo-image" />
+            </div>
             </div>
             
             {user && (
